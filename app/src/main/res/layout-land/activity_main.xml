@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_activity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/original_state"
+    tools:context=".MainActivity">
+
+    <io.ghyeok.stickyswitch.widget.StickySwitch
+        android:id="@+id/switch_suction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/switch_pick"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="54dp"
+        app:ss_animationDuration="600"
+        app:ss_animationType="line"
+        app:ss_iconPadding="18dp"
+        app:ss_iconSize="22dp"
+        app:ss_leftIcon="@drawable/ic_suction_off"
+        app:ss_leftText="OFF"
+        app:ss_rightIcon="@drawable/ic_suction_on"
+        app:ss_rightText="ON"
+        app:ss_selectedTextSize="14sp"
+        app:ss_sliderBackgroundColor="@color/colorPrimaryDark"
+        app:ss_switchColor="@color/red"
+        app:ss_textSize="12sp" />
+
+    <io.ghyeok.stickyswitch.widget.StickySwitch
+        android:id="@+id/switch_pick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="37dp"
+        android:layout_marginBottom="27dp"
+        app:ss_animationDuration="600"
+        app:ss_animationType="line"
+        app:ss_iconPadding="18dp"
+        app:ss_iconSize="22dp"
+        app:ss_leftIcon="@drawable/ic_suction_off"
+        app:ss_leftText="DOWN"
+        app:ss_rightIcon="@drawable/ic_suction_on"
+        app:ss_rightText="UP"
+        app:ss_selectedTextSize="14sp"
+        app:ss_sliderBackgroundColor="@color/colorPrimaryDark"
+        app:ss_switchColor="@color/red"
+        app:ss_textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="78dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="19dp"
+        android:text="Suction" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="88dp"
+        android:layout_marginBottom="128dp"
+        android:text="Pick"
+        android:textColor="@color/white" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="400dp">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/floatingActionButton4"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="58dp"
+            android:clickable="true"
+            android:maxWidth="50dp"
+            android:minHeight="50dp"
+            android:src="@drawable/ic_turn_front"
+            app:fabSize="normal" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="232dp"
+            android:clickable="true"
+            android:src="@drawable/ic_turn_left"
+            app:fabSize="normal" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="62dp"
+            android:clickable="true"
+            android:src="@drawable/ic_turn_right"
+            app:fabSize="normal" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="142dp"
+            android:layout_marginBottom="58dp"
+            android:clickable="true"
+            android:src="@drawable/ic_turn_back"
+            app:fabSize="normal" />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
