@@ -2,4 +2,5 @@
     <string name="app_name">Controller</string>
     <string name="action_subscribe">Subscribe</string>
     <string name="action_unsubscribe">Unsubscribe</string>
+    <string name="action_start">Intro Screen</string>
 </resources>

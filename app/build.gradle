@@ -34,6 +34,8 @@ dependencies {
     implementation 'com.github.GwonHyeok:StickySwitch:0.0.15'
 
     implementation 'com.android.support:design:27.1.1'
+
+    implementation 'com.ramotion.paperonboarding:paper-onboarding:1.1.1'
 }
 
 allprojects {

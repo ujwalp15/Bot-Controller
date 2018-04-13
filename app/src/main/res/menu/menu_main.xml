@@ -14,4 +14,10 @@
         android:orderInCategory="200"
         android:title="@string/action_unsubscribe"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_start"
+        android:orderInCategory="300"
+        android:title="@string/action_start"
+        app:showAsAction="never" />
 </menu>

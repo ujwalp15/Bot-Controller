@@ -135,6 +135,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.action_unsubscribe) {
             unSubscribeMQTT();
             return true;
+        } else if (id == R.id.action_start) {
+            Intent intent = new Intent(MainActivity.this, OnboarderActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
