@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout r1;
     FloatingActionButton f1,f2,f3,f4;
 
-    String topic = "bellax/ack";
+    String topic = "robo";
 
     //Broadcast Recieve
     private BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -70,10 +71,10 @@ public class MainActivity extends AppCompatActivity {
             public void onSelectedChange(@NotNull StickySwitch.Direction direction, @NotNull String text) {
                 if(direction.name().equals("RIGHT")) {
                     s1.setSwitchColor(getResources().getColor(R.color.green));
-                    //command("ST:");
+                    command("ST");
                 } else {
                     s1.setSwitchColor(getResources().getColor(R.color.red));
-                    //command("SF");
+                    command("SF");
                 }
             }
         });
@@ -83,10 +84,10 @@ public class MainActivity extends AppCompatActivity {
             public void onSelectedChange(@NotNull StickySwitch.Direction direction, @NotNull String text) {
                 if(direction.name().equals("RIGHT")) {
                     s2.setSwitchColor(getResources().getColor(R.color.green));
-                    //command("PU:");
+                    command("PU");
                 } else {
                     s2.setSwitchColor(getResources().getColor(R.color.red));
-                    //command("PD:");
+                    command("PD");
                 }
             }
         });
@@ -104,6 +105,12 @@ public class MainActivity extends AppCompatActivity {
         startService(intent);
 
         acceptTouch();
+    }
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
     }
 
     @Override
@@ -134,29 +141,77 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void acceptTouch() {
-        f1.setOnClickListener(new View.OnClickListener() {
+        f1.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                command("FT");
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN) //MotionEvent.ACTION_DOWN is when you hold a button down
+                {
+                    command("F");
+                }
+                else if(event.getAction() == MotionEvent.ACTION_UP) //MotionEvent.ACTION_UP is when you release a button
+                {
+                    command("F");
+
+                }
+
+                return false;
             }
+
         });
-        f2.setOnClickListener(new View.OnClickListener() {
+        f2.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                command("LT");
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN) //MotionEvent.ACTION_DOWN is when you hold a button down
+                {
+                    command("L");
+                }
+                else if(event.getAction() == MotionEvent.ACTION_UP) //MotionEvent.ACTION_UP is when you release a button
+                {
+                    command("L");
+
+                }
+
+                return false;
             }
+
         });
-        f3.setOnClickListener(new View.OnClickListener() {
+        f3.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                command("RT");
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN) //MotionEvent.ACTION_DOWN is when you hold a button down
+                {
+                    command("R");
+                }
+                else if(event.getAction() == MotionEvent.ACTION_UP) //MotionEvent.ACTION_UP is when you release a button
+                {
+                    command("R");
+
+                }
+
+                return false;
             }
+
         });
-        f4.setOnClickListener(new View.OnClickListener() {
+        f4.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                command("BT");
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN) //MotionEvent.ACTION_DOWN is when you hold a button down
+                {
+                    command("B");
+                }
+                else if(event.getAction() == MotionEvent.ACTION_UP) //MotionEvent.ACTION_UP is when you release a button
+                {
+                    command("B");
+
+                }
+
+                return false;
             }
+
         });
     }
 
@@ -173,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void subscribeMQTT() {
-        String topic = "bellax/ack";
+        String topic = "robo";
         try {
             pahoMqttClient.subscribe(client, topic, 0);
         } catch (MqttException e) {
@@ -182,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void unSubscribeMQTT() {
-        String topic = "bellax/ack";
+        String topic = "robo";
         if (!topic.isEmpty()) {
             try {
                 pahoMqttClient.unSubscribe(client, topic);
